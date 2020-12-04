@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Nutrition-System</string>
+    <string name="self_name">سامانه سلف دانشگاه اصفهان</string>
+    <string name="user_name"><b>نام کاربری</b></string>
+    <string name="password"><b>رمز عبور</b></string>
+    <string name="login_text">ورود</string>
+    <string name="forget_pass">فراموشی رمز عبور</string>
+    <string name="hint_mobile_forget_pass">لطفا شماره موبایل خود را وارد کنید</string>
+    <string name="send_code">ارسال رمز</string>
 </resources>
