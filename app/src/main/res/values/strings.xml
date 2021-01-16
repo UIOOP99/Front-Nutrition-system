@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Nutrition-System</string>
+    <string name="submit_main">ثبت نهایی</string>
+    <string name="saturday">شنبه</string>
+    <string name="sunday">یکشنبه</string>
+    <string name="monday">دوشنبه</string>
+    <string name="tuesday">سه شنبه</string>
+    <string name="wednesday">چهارشنبه</string>
+    <string name="thursday">پنجشنبه</string>
+    <string name="friday">جمعه</string>
+    <string name="app_name_2">سامانه سلف دانشگاه اصفهان</string>
+    <string name="cash">موجودی</string>
+    <string name="increase_cash">افزایش موجودی</string>
+    <string name="price">جمع خرید</string>
+    <string name="breakfast">صبحانه</string>
+    <string name="lunch">ناهار</string>
+    <string name="dinner">شام</string>
 </resources>
