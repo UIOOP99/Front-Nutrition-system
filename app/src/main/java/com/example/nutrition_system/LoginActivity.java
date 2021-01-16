@@ -3,11 +3,14 @@ package com.example.nutrition_system;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.nutrition_system.utils.SetUp;
 import com.google.android.material.textfield.TextInputEditText;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 
 public class LoginActivity extends SetUp {
@@ -28,9 +31,12 @@ public class LoginActivity extends SetUp {
     }
 
     private void forgetPassword() {
-        forgetPass.setOnClickListener(view -> {
-            startActivity(new Intent(LoginActivity.this, PasswordActivity.class));
-            finish();
+        forgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, PasswordActivity.class));
+                finish();
+            }
         });
     }
 
@@ -47,12 +53,15 @@ public class LoginActivity extends SetUp {
     }
 
     private void login() {
-        login.setOnClickListener(view -> {
-            usernameString = username.getText().toString().trim();
-            passwordString = password.getText().toString().trim();
-            if (checkCorrectness(usernameString, passwordString)) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                finish();
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                usernameString = username.getText().toString().trim();
+                passwordString = password.getText().toString().trim();
+                if (checkCorrectness(usernameString, passwordString)) {
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    finish();
+                }
             }
         });
     }

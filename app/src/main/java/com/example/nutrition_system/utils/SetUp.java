@@ -38,7 +38,12 @@ public class SetUp extends AppCompatActivity {
         }
         this.doubleBackToExitPressedOnce = true;
         Toast.makeText(this, "لطفا دوباره کلیک کنید تا خارج شوید", Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, 2000);
+        final Runnable r = new Runnable() {
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        };
+        new Handler().postDelayed(r , 2000);
     }
 
     @Override
