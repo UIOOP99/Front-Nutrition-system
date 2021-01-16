@@ -1,4 +1,4 @@
-package com.example.nutrition_system;
+package com.example.nutrition_system.Activities.AuthenticationActivities;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.nutrition_system.MainActivity;
+import com.example.nutrition_system.R;
 import com.example.nutrition_system.utils.SetUp;
 import com.google.android.material.textfield.TextInputEditText;
-
-import static androidx.core.content.ContextCompat.startActivity;
 
 
 public class LoginActivity extends SetUp {

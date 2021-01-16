@@ -1,8 +1,10 @@
-package com.example.nutrition_system;
+package com.example.nutrition_system.Activities.ChooseFoodActivities;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.nutrition_system.R;
 
 public class BottomSheetActivity extends AppCompatActivity {
 

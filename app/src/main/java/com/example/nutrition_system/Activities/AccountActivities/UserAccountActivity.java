@@ -1,4 +1,4 @@
-package com.example.nutrition_system;
+package com.example.nutrition_system.Activities.AccountActivities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.nutrition_system.R;
 
 public class UserAccountActivity extends AppCompatActivity {
 
