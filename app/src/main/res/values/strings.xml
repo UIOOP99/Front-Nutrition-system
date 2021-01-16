@@ -7,4 +7,18 @@
     <string name="forget_pass">فراموشی رمز عبور</string>
     <string name="hint_mobile_forget_pass">لطفا شماره موبایل خود را وارد کنید</string>
     <string name="send_code">ارسال رمز</string>
+    <string name="cash">موجودی</string>
+    <string name="sunday">یکشنبه</string>
+    <string name="monday">دوشنبه</string>
+    <string name="tuesday">سه شنبه</string>
+    <string name="wednesday">چهارشنبه</string>
+    <string name="saturday">اشنبه</string>
+    <string name="breakfast">صبحانه</string>
+    <string name="lunch">ناهار</string>
+    <string name="dinner">شام</string>
+    <string name="increase_cash">افزایش موجودی</string>
+    <string name="price">جمع خرید</string>
+    <string name="thursday">پنجشنبه</string>
+    <string name="friday">جمعه</string>
+    <string name="submit_main">ثبت نهایی</string>
 </resources>
