@@ -7,4 +7,9 @@
     <string name="forget_pass">فراموشی رمز عبور</string>
     <string name="hint_mobile_forget_pass">لطفا شماره موبایل خود را وارد کنید</string>
     <string name="send_code">ارسال رمز</string>
+    <string name="date">"دوشنبه 10/9 "</string>
+    <string name="choose_food">صبحانه خود را انتخاب کنید</string>
+    <string name="chicken_fries">مرغ و سیب زمینی</string>
+    <string name="price"> قیمت: 3000 تومن</string>
+    <string name="select">انتخاب</string>
 </resources>
