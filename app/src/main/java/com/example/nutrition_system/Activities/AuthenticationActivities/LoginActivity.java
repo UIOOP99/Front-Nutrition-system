@@ -1,8 +1,11 @@
 package com.example.nutrition_system.Activities.AuthenticationActivities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,6 +31,7 @@ public class LoginActivity extends SetUp {
         init();
         login();
         forgetPassword();
+
     }
 
     private void forgetPassword() {
@@ -62,8 +66,16 @@ public class LoginActivity extends SetUp {
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
                 }
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString(getToke(username,password),"usertoken");
+                editor.apply();
             }
+
         });
+    }
+
+    private String getToke(TextInputEditText username, TextInputEditText password) {
     }
 
     private void init() {
