@@ -35,8 +35,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.bottom_sheet, container, false);
-      //  getDialog().setContentView(view);
-      //  getDialog().show();
         return view;
     }
 
@@ -51,15 +49,15 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-      //  setUpView();
+        //  setUpView();
     }
 
     private void setUpView() {
         init();
         nameFoodOne.setText(food1.getName());
         nameFoodTwo.setText(food2.getName());
-        priceFoodOne.setText(food1.getPrice()+"");
-        priceFoodTwo.setText(food2.getPrice()+"");
+        priceFoodOne.setText(food1.getPrice() + "");
+        priceFoodTwo.setText(food2.getPrice() + "");
         mealType.setText(mealTypeString);
         date.setText(dateString);
 
@@ -73,8 +71,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 .into(pictureFoodTwo);
 
         //save food
-        //run
-
     }
 
     private void init() {
@@ -85,8 +81,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         nameFoodTwo = view.findViewById(R.id.name_Food_two);
         priceFoodOne = view.findViewById(R.id.price_food_one);
         priceFoodTwo = view.findViewById(R.id.price_food_two);
-        //priceFoodOne = view.findViewById(R.id.price_food_one);
-        //priceFoodTwo = view.findViewById(R.id.price_food_two);
+
     }
 
 
