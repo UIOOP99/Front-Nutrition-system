@@ -12,7 +12,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
+
     private static Retrofit retrofit = null;
+
     public static Retrofit getClient(String baseUrl) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -24,6 +26,7 @@ public class RetrofitClient {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
+
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrl)

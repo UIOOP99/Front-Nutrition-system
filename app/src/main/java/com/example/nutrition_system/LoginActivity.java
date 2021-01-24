@@ -75,4 +75,8 @@ public class LoginActivity extends SetUp {
         type = Typeface.createFromAsset(getAssets(), "fonts/bkoodak.ttf");
         title.setTypeface(type);
     }
+
+    private void getTokenFromServer(){
+
+    }
 }
