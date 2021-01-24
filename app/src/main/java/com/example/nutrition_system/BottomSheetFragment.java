@@ -25,7 +25,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     private TextView date;
     private TextView nameFoodOne, nameFoodTwo;
     private TextView priceFoodOne, priceFoodTwo;
-
     private ImageView pictureFoodOne, pictureFoodTwo;
     private Food food1, food2;
     private String dateString;
@@ -86,8 +85,8 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         nameFoodTwo = view.findViewById(R.id.name_Food_two);
         priceFoodOne = view.findViewById(R.id.price_food_one);
         priceFoodTwo = view.findViewById(R.id.price_food_two);
-        priceFoodOne = view.findViewById(R.id.price_food_one);
-        priceFoodTwo = view.findViewById(R.id.price_food_two);
+        //priceFoodOne = view.findViewById(R.id.price_food_one);
+        //priceFoodTwo = view.findViewById(R.id.price_food_two);
     }
 
 

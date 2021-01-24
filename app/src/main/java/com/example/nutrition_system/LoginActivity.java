@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.nutrition_system.model.Repository;
 import com.example.nutrition_system.utils.SetUp;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -17,11 +18,13 @@ public class LoginActivity extends SetUp {
     private TextView forgetPass, title;
     private String usernameString, passwordString;
     private Typeface type;
+    private Repository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        repository = new Repository();
         init();
         login();
         forgetPassword();
@@ -51,8 +54,12 @@ public class LoginActivity extends SetUp {
             usernameString = username.getText().toString().trim();
             passwordString = password.getText().toString().trim();
             if (checkCorrectness(usernameString, passwordString)) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                finish();
+                repository.checkLogin(usernameString, passwordString).observe(LoginActivity.this, aBoolean -> {
+                    if (aBoolean) {
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        finish();
+                    }
+                });
             }
         });
     }

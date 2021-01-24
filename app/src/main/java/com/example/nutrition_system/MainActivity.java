@@ -16,21 +16,18 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 public class MainActivity extends AppCompatActivity {
 
     private TextView button;
-    private Food food1,food2;
+    private Food food1, food2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button=findViewById(R.id.button);
-        BottomSheetFragment dialog = new BottomSheetFragment();
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                BottomSheetFragment bottomFragment = new BottomSheetFragment();
-                bottomFragment.show(getSupportFragmentManager(), bottomFragment.getTag());
-                //dialog.getInstance(food1,food2,"sd","sd");
-            }
+        button = findViewById(R.id.button);
+        // BottomSheetFragment dialog = new BottomSheetFragment();
+        button.setOnClickListener(view -> {
+            BottomSheetFragment bottomFragment = new BottomSheetFragment();
+            bottomFragment.show(getSupportFragmentManager(), bottomFragment.getTag());
+            bottomFragment.getInstance(food1,food2,"dosh 1/12","sd");
         });
     }
 

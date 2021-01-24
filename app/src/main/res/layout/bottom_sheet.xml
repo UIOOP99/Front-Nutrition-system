@@ -48,10 +48,10 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="200sp"
+                android:layout_width="80dp"
                 android:id="@+id/image_food_one"
-                android:layout_height="100dp"
-                android:src="@drawable/logo_isfahan"/>
+                android:layout_height="80dp"
+                android:src="@drawable/no_image"/>
             <TextView
                 style="@style/BottomSheetItem"
                 android:layout_width="wrap_content"
@@ -81,13 +81,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginLeft="@dimen/text_login_Size"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="200sp"
+                android:layout_width="80dp"
                 android:id="@+id/image_food_two"
-                android:layout_height="100dp"
-                android:src="@drawable/logo_isfahan"/>
+                android:layout_height="80dp"
+                android:src="@drawable/no_image"/>
             <TextView
                 style="@style/BottomSheetItem"
                 android:layout_width="wrap_content"
