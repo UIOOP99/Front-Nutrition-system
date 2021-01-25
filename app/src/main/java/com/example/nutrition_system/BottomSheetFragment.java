@@ -32,6 +32,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     private Food food1, food2;
     private String dateString;
     private String mealTypeString;
+    private int userId;
     private LinearLayout lnFood1, lnFood2;
     private boolean isFood1Selection, isFood2Selection;
     private Repository repository;
@@ -46,6 +47,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         init();
         selectFood();
         saveFood();
+        setUpView();
         return view;
     }
 
@@ -53,9 +55,29 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
 
         select.setOnClickListener(view -> {
             if (isFood1Selection) {
-                repository.reserveFood("1", "1", "2021-01-16");
+                repository.reserveFood(String.valueOf(userId), String.valueOf(food1.getId()), dateString).observe(getActivity(), aBoolean -> {
+                    if (aBoolean) {
+                        Snackbar.make(getView(), "با موفقیت ثبت شد", Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(getResources().getColor(android.R.color.background_dark))
+                                .show();
+                    } else {
+                        Snackbar.make(getView(), "امکان ثبت غذا وجود ندارد", Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(getResources().getColor(android.R.color.background_dark))
+                                .show();
+                    }
+                });
             } else if (isFood2Selection) {
-                repository.reserveFood("1", "1", "2021-01-16");
+                repository.reserveFood(String.valueOf(userId), String.valueOf(food2.getId()), dateString).observe(getActivity(), aBoolean -> {
+                    if (aBoolean) {
+                        Snackbar.make(getView(), "با موفقیت ثبت شد", Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(getResources().getColor(android.R.color.background_dark))
+                                .show();
+                    } else {
+                        Snackbar.make(getView(), "امکان ثبت غذا وجود ندارد", Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(getResources().getColor(android.R.color.background_dark))
+                                .show();
+                    }
+                });
             }
         });
     }
@@ -75,7 +97,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         });
     }
 
-    public void getInstance(Food food1, Food food2, String date, String mealType) {
+    public void getInstance(Food food1, Food food2, String date, String mealType, int userId) {
         this.food1 = food1;
         this.food2 = food2;
         dateString = date;

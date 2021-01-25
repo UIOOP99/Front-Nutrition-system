@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(view -> {
             BottomSheetFragment bottomFragment = new BottomSheetFragment();
             bottomFragment.show(getSupportFragmentManager(), bottomFragment.getTag());
-            bottomFragment.getInstance(food1,food2,"dosh 1/12","sd");
+           // bottomFragment.getInstance(food1,food2,"dosh 1/12","sd",1);
         });
     }
 

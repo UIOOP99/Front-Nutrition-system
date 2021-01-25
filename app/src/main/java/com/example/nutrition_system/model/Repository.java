@@ -23,9 +23,9 @@ import io.reactivex.schedulers.Schedulers;
 
 public class Repository {
 
-    //password users-reserve food
     BaseApiService apiService = UtilsApi.getAPIService();
     MutableLiveData<Boolean> allowed = new MutableLiveData<>();
+    MutableLiveData<Boolean> reserve = new MutableLiveData<>();
 
     public MutableLiveData<Boolean> checkLogin(String username, String password) {
         apiService.loginRequest().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
@@ -62,26 +62,28 @@ public class Repository {
         return allowed;
     }
 
-    public void reserveFood(String userId, String foodId, String date) {
+    public MutableLiveData<Boolean> reserveFood(String userId, String foodId, String date) {
         apiService.reserveFood(userId, date, foodId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<JsonArray>() {
 
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        Log.d("json", "2");
-
                     }
 
                     @Override
                     public void onSuccess(@NonNull JsonArray jsonObject) {
-                        Log.d("json", jsonObject + "1");
+                        Log.d("json", jsonObject + "ok");
+                        reserve.postValue(Boolean.TRUE);
+
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        Log.d("json", "3");
+                        Log.d("e",e.getMessage());
+                        reserve.postValue(Boolean.FALSE);
 
                     }
                 });
+        return reserve;
     }
 }

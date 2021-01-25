@@ -6,8 +6,16 @@ public class Food implements Parcelable {
     //string of url
     private String image;
     private String name;
+    private int id;
     private double price;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public double getPrice() {
         return price;
     }
