@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -22,10 +23,11 @@ public class SetUp extends AppCompatActivity {
     public void showProgressDialog() {
         mProgressDialog = new Dialog(this);
         mProgressDialog.setContentView(R.layout.dialog_progress);
+        mProgressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         mProgressDialog.show();
     }
 
-    private void hideProgressDialog() {
+    public void hideProgressDialog() {
         mProgressDialog.dismiss();
     }
 

@@ -3,11 +3,14 @@ package com.example.nutrition_system;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nutrition_system.model.Repository;
 import com.example.nutrition_system.utils.SetUp;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 
@@ -51,13 +54,22 @@ public class LoginActivity extends SetUp {
 
     private void login() {
         login.setOnClickListener(view -> {
+            showProgressDialog();
             usernameString = username.getText().toString().trim();
             passwordString = password.getText().toString().trim();
             if (checkCorrectness(usernameString, passwordString)) {
                 repository.checkLogin(usernameString, passwordString).observe(LoginActivity.this, aBoolean -> {
                     if (aBoolean) {
+                        hideProgressDialog();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
+                    }
+                    else {
+                        hideProgressDialog();
+                        View parentLayout = findViewById(android.R.id.content);
+                        Snackbar.make(parentLayout, "اطلاعات خود را دوباره وارد کنید", Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(getResources().getColor(android.R.color.background_dark))
+                                .show();
                     }
                 });
             }

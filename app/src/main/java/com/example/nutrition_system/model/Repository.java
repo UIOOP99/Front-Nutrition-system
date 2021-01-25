@@ -12,6 +12,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -20,7 +23,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class Repository {
 
-    //password users-progress bar-reserve food
+    //password users-reserve food
     BaseApiService apiService = UtilsApi.getAPIService();
     MutableLiveData<Boolean> allowed = new MutableLiveData<>();
 
@@ -36,18 +39,18 @@ public class Repository {
                     @Override
                     public void onSuccess(@NonNull JsonArray jsonArray) {
                         Log.d("json", "2" + "");
-
-                        for (int i = 0; i < jsonArray.size(); i++) {
+                        int i=0;
+                        for ( i = 0; i < jsonArray.size(); i++) {
                             JsonElement js = jsonArray.get(i);
-                            if (js.getAsJsonObject().getAsJsonPrimitive("name").getAsString().equals(username)
-                                //&&
-                                // js.getAsJsonObject().getAsJsonPrimitive("password").getAsString().equals(password)
-                            ) {
+                            if (js.getAsJsonObject().getAsJsonPrimitive("name").getAsString().equals(username)) {
                                 Log.d("json", js.getAsJsonObject().getAsJsonPrimitive("name").getAsString() + "");
                                 allowed.postValue(Boolean.TRUE);
+                                break;
                             }
-
                         }
+                        if(i==jsonArray.size())
+                         allowed.postValue(Boolean.FALSE);
+
                     }
 
                     @Override
@@ -55,12 +58,13 @@ public class Repository {
                         Log.d("json", e + "");
                     }
                 });
+        Log.d("all",allowed+"");
         return allowed;
     }
 
     public void reserveFood(String userId, String foodId, String date) {
         apiService.reserveFood(userId, date, foodId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<JsonObject>() {
+                .subscribe(new SingleObserver<JsonArray>() {
 
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
@@ -69,7 +73,7 @@ public class Repository {
                     }
 
                     @Override
-                    public void onSuccess(@NonNull JsonObject jsonObject) {
+                    public void onSuccess(@NonNull JsonArray jsonObject) {
                         Log.d("json", jsonObject + "1");
                     }
 
