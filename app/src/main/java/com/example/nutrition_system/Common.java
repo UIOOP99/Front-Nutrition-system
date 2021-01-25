@@ -1,0 +1,7 @@
+package com.example.nutrition_system;
+
+public class Common {
+
+    public final static String User_TOKKEN="id=2eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTE2NjAxMjcsInVzZXJfaWQiOjIsInVzZXJuYW1lIjoibmV3X3VzZXIiLCJyb2xlIjowLCJmaXJzdF9uYW1lIjoiIiwibGFzdF9uYW1lIjoiIiwiZW1haWwiOiIifQ.AGBtQUY1Zcz7Jb6yKdJppkHXP7g71vyV3xo7XbEJ9r471vaBqo7qdbnKrWbXs4qnq7eB0PLnGfUMhBjQoifm6Id6AC4IeVOfbw_VB8o4JceTYQmWuDDz_PJuQ2tLUqJgcyGFHrTEWLCv2bYEn4jh3EuP7AnRwK4i0JzOlWY_qX9Ueeai";
+
+}
