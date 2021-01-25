@@ -59,7 +59,7 @@ public class LoginActivity extends SetUp {
                 usernameString = username.getText().toString().trim();
                 passwordString = password.getText().toString().trim();
                 if (checkCorrectness(usernameString, passwordString)) {
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    startActivity(new Intent(LoginActivity.this, NutritionMainActivity.class));
                     finish();
                 }
             }

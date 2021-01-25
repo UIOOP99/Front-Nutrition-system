@@ -9,6 +9,21 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.nutrition_system.models.Food;
+import com.example.nutrition_system.remote.FoodService;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import okhttp3.Response;
+import retrofit2.Call;
+
+import static com.example.nutrition_system.remote.UtilsApi.getFoodService;
+
 public class NutritionMainActivity extends AppCompatActivity implements View.OnClickListener{
 
     TextView cash,
@@ -56,6 +71,7 @@ public class NutritionMainActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrition_main);
         init();
+
     }
 
     private void init() {
@@ -102,9 +118,12 @@ public class NutritionMainActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
+        FoodService fs=getFoodService();
+        Call<Food> call= fs.getFood();
         switch (view.getId()){
             case R.id.increase_cash:{
-                //TODO implement increase cash button
+                Intent intent = new Intent(this, AccountRechargeActivity.class);
+                startActivity(intent);
             }
             break;
             case R.id.submitButton:{
@@ -172,4 +191,6 @@ public class NutritionMainActivity extends AppCompatActivity implements View.OnC
             break;
         }
     }
+
+
 }
