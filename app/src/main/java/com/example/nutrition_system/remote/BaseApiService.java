@@ -23,6 +23,9 @@ public interface BaseApiService {
     Single<JsonArray> reserveFood(@Field("user_id")  String userId,
                                    @Field("date")    String date,
                                    @Field("food_id") String foodId);
+    @FormUrlEncoded
+    @POST("/api/charge/")
+    Single<JsonObject> chargeWallet(@Field("charge") int charge);
 
 }
 

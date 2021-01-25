@@ -86,4 +86,31 @@ public class Repository {
                 });
         return reserve;
     }
+
+    public MutableLiveData<Boolean>charge(int amount){
+        apiService.chargeWallet( amount).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<JsonObject>() {
+
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        Log.d("ssa","saa");
+
+                    }
+
+                    @Override
+                    public void onSuccess(@NonNull JsonObject jsonObject) {
+                        Log.d("json", jsonObject + "ok");
+                        reserve.postValue(Boolean.TRUE);
+
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        Log.d("e",e.getMessage());
+                        reserve.postValue(Boolean.FALSE);
+                    }
+                });
+        return reserve;
+    }
+
 }

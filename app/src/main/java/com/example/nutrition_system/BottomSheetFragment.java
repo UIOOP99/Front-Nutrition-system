@@ -55,7 +55,9 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
 
         select.setOnClickListener(view -> {
             if (isFood1Selection) {
-                repository.reserveFood(String.valueOf(userId), String.valueOf(food1.getId()), dateString).observe(getActivity(), aBoolean -> {
+                //"2","1","2020-02-03"
+
+                repository.reserveFood(String.valueOf(userId),String.valueOf(food1.getId()),"2020-02-03").observe(getActivity(), aBoolean -> {
                     if (aBoolean) {
                         Snackbar.make(getView(), "با موفقیت ثبت شد", Snackbar.LENGTH_LONG)
                                 .setBackgroundTint(getResources().getColor(android.R.color.background_dark))
@@ -67,7 +69,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                     }
                 });
             } else if (isFood2Selection) {
-                repository.reserveFood(String.valueOf(userId), String.valueOf(food2.getId()), dateString).observe(getActivity(), aBoolean -> {
+                repository.reserveFood("2","1","2020-02-03").observe(getActivity(), aBoolean -> {
                     if (aBoolean) {
                         Snackbar.make(getView(), "با موفقیت ثبت شد", Snackbar.LENGTH_LONG)
                                 .setBackgroundTint(getResources().getColor(android.R.color.background_dark))

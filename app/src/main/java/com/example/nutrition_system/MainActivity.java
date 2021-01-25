@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.nutrition_system.model.Food;
+import com.example.nutrition_system.model.Repository;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(view -> {
             BottomSheetFragment bottomFragment = new BottomSheetFragment();
             bottomFragment.show(getSupportFragmentManager(), bottomFragment.getTag());
-           // bottomFragment.getInstance(food1,food2,"dosh 1/12","sd",1);
+            bottomFragment.getInstance(food1,food2,"dosh 1/12","sd",1);
+        //    Repository repository=new Repository();
+         //   repository.charge(2000);
         });
     }
 
